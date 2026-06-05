@@ -1,0 +1,60 @@
+# APIScan Configuration File
+# Place this file at ./apiscan.yaml or ~/.apiscan/apiscan.yaml
+#
+# All values shown here are the defaults.
+# Override only what you need to change.
+
+scanner:
+  # How many endpoints to test concurrently.
+  # Start low (3-5) and increase only if the target can handle it.
+  # High concurrency against a production API can cause disruption.
+  concurrency: 5
+
+  # Per-request timeout in seconds.
+  timeout: 15
+
+  # Maximum requests per second. This is a hard throttle.
+  # 10 req/s is respectful for most APIs.
+  rate_limit_rps: 10
+
+  # Safe mode prevents destructive payloads and blocks private IP targets.
+  # ALWAYS leave this true unless you know what you're doing.
+  safe_mode: true
+
+  # User agent string identifies this tool in target server logs.
+  # This is intentional transparency — do not set a deceptive user agent.
+  user_agent: "APIScan/1.0 (Security Scanner - github.com/yourusername/apiscan)"
+
+  follow_redirects: true
+  max_redirects: 5
+
+  # Directory where reports are saved
+  output_dir: "./reports"
+
+# Authentication configuration
+# Leave enabled: false if the API you're testing is fully public.
+authentication:
+  enabled: false
+  type: bearer        # bearer | basic | apikey
+  scheme: "Bearer"    # Used in Authorization header prefix
+  # token: ""         # Set via --auth-token flag or APISCAN_AUTHENTICATION_TOKEN env var
+  # header_name: ""   # For apikey type: e.g. X-API-Key
+
+# Check categories to run
+checks:
+  authentication: true
+  authorization: true
+  input_validation: true
+  data_exposure: true
+  security_headers: true
+  rate_limiting: true
+  error_handling: true
+  misconfiguration: true
+
+# Reporting configuration
+reporting:
+  # Output formats: json, markdown, html (can specify multiple)
+  formats:
+    - json
+    - markdown
+  output_dir: "./reports"
