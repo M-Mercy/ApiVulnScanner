@@ -7,7 +7,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/yourusername/apiscan/internal/models"
+	"github.com/M-Mercy/ApiVulnScanner/internal/models"
 )
 
 // HTMLReporter generates a self-contained HTML report.

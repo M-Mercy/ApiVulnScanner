@@ -135,7 +135,6 @@ func initLogger() {
 // initLogger hasn't been called yet (e.g. during tests).
 func getLogger() *zap.Logger {
 	if logger == nil {
-		logger, _ = zap.NewNop().With(), nil
 		logger = zap.NewNop()
 	}
 	return logger

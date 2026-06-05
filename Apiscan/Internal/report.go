@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/M-Mercy/ApiVulnScanner/internal/models"
 	"github.com/spf13/cobra"
-	"github.com/yourusername/apiscan/internal/models"
 )
 
 // newReportCmd builds the `apiscan report` command.

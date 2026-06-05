@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/yourusername/apiscan/internal/models"
+	"github.com/M-Mercy/ApiVulnScanner/internal/models"
 	"go.uber.org/zap"
 )
 

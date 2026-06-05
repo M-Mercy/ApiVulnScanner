@@ -1,11 +1,11 @@
 // Package engine implements the core scanning orchestration.
 //
 // The engine is responsible for:
-//   1. Taking a ScanConfig and a list of Check implementations
-//   2. Distributing work across a goroutine pool
-//   3. Collecting results safely (using channels, not shared state)
-//   4. Handling timeouts and cancellations gracefully
-//   5. Providing progress feedback
+//  1. Taking a ScanConfig and a list of Check implementations
+//  2. Distributing work across a goroutine pool
+//  3. Collecting results safely (using channels, not shared state)
+//  4. Handling timeouts and cancellations gracefully
+//  5. Providing progress feedback
 //
 // Design principle: The engine knows NOTHING about what the checks do.
 // It just runs them, collects results, and handles errors.
@@ -19,10 +19,11 @@ import (
 	"sync"
 	"time"
 
+	"github.com/M-Mercy/ApiVulnScanner/internal/checks"
+	"github.com/M-Mercy/ApiVulnScanner/internal/httpclient"
+	"github.com/M-Mercy/ApiVulnScanner/internal/models"
 	"github.com/google/uuid"
-	"github.com/yourusername/apiscan/internal/checks"
-	"github.com/yourusername/apiscan/internal/httpclient"
-	"github.com/yourusername/apiscan/internal/models"
+
 	"go.uber.org/zap"
 )
 
@@ -185,7 +186,7 @@ func (e *Engine) Scan(ctx context.Context, endpoints []*models.Endpoint) (*model
 // worker processes jobs from the jobs channel and sends results to the results channel.
 // Each worker runs in its own goroutine.
 // Workers recover from panics to prevent a single bad check from crashing the scan.
-func (e *Engine) worker(ctx context.Context, id int, jobs <-chan job, results chan<- jobResult) {
+func (e *Engine) worker(ctx context.Context, _ int, jobs <-chan job, results chan<- jobResult) {
 	for j := range jobs {
 		select {
 		case <-ctx.Done():

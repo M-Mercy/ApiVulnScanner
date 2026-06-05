@@ -14,9 +14,10 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/M-Mercy/ApiVulnScanner/internal/httpclient"
+	"github.com/M-Mercy/ApiVulnScanner/internal/models"
 	"github.com/google/uuid"
-	"github.com/yourusername/apiscan/internal/httpclient"
-	"github.com/yourusername/apiscan/internal/models"
+
 	"go.uber.org/zap"
 )
 

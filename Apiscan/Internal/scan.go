@@ -9,19 +9,19 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/M-Mercy/ApiVulnScanner/internal/checks"
+	"github.com/M-Mercy/ApiVulnScanner/internal/config"
+	"github.com/M-Mercy/ApiVulnScanner/internal/engine"
+	"github.com/M-Mercy/ApiVulnScanner/internal/httpclient"
+	"github.com/M-Mercy/ApiVulnScanner/internal/models"
+	"github.com/M-Mercy/ApiVulnScanner/internal/reporting"
+	"github.com/M-Mercy/ApiVulnScanner/internal/scanner"
+	authchecks "github.com/M-Mercy/ApiVulnScanner/internal/checks/auth"
+	exposurechecks "github.com/M-Mercy/ApiVulnScanner/internal/checks/exposure"
+	headerchecks "github.com/M-Mercy/ApiVulnScanner/internal/checks/headers"
+	injectionchecks "github.com/M-Mercy/ApiVulnScanner/internal/checks/injection"
+	ratelimitchecks "github.com/M-Mercy/ApiVulnScanner/internal/checks/ratelimit"
 	"github.com/spf13/cobra"
-	"github.com/yourusername/apiscan/internal/checks"
-	authchecks "github.com/yourusername/apiscan/internal/checks/auth"
-	exposurechecks "github.com/yourusername/apiscan/internal/checks/exposure"
-	headerchecks "github.com/yourusername/apiscan/internal/checks/headers"
-	injectionchecks "github.com/yourusername/apiscan/internal/checks/injection"
-	ratelimitchecks "github.com/yourusername/apiscan/internal/checks/ratelimit"
-	"github.com/yourusername/apiscan/internal/config"
-	"github.com/yourusername/apiscan/internal/engine"
-	"github.com/yourusername/apiscan/internal/httpclient"
-	"github.com/yourusername/apiscan/internal/models"
-	"github.com/yourusername/apiscan/internal/reporting"
-	"github.com/yourusername/apiscan/internal/scanner"
 	"go.uber.org/zap"
 )
 
@@ -172,7 +172,7 @@ func runScan(flags *scanFlags) error {
 	log := getLogger()
 
 	// Print the banner and consent warning to stderr
-	fmt.Fprintln(os.Stderr, Banner)
+	fmt.Fprint(os.Stderr, Banner)
 
 	// ----------------------------------------------------------------
 	// SAFETY GATE: Abort immediately if authorization not confirmed

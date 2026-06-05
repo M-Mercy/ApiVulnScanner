@@ -1,4 +1,6 @@
 // APIScan — Automated API Security Scanner for Fintech SMEs
+//
+// Main entry point. This file is intentionally minimal.
 // All logic lives in cmd/ and internal/.
 // main.go's only job is to call cmd.Execute() and handle the exit code.
 package main
@@ -6,7 +8,7 @@ package main
 import (
 	"os"
 
-	"github.com/yourusername/apiscan/cmd/apiscan"
+	apiscan "github.com/M-Mercy/ApiVulnScanner/Apiscan/Internal"
 )
 
 func main() {

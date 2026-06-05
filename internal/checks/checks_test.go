@@ -12,10 +12,11 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	authchecks "internal/checks/auth"
-	headerchecks "internal/checks/headers"
-	"internal/httpclient"
-	"internal/models"
+	authchecks "github.com/M-Mercy/ApiVulnScanner/internal/checks/auth"
+	headerchecks "github.com/M-Mercy/ApiVulnScanner/internal/checks/headers"
+	"github.com/M-Mercy/ApiVulnScanner/internal/httpclient"
+	"github.com/M-Mercy/ApiVulnScanner/internal/models"
+
 	"go.uber.org/zap"
 )
 

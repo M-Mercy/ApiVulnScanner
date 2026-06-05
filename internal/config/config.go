@@ -1,9 +1,9 @@
 // Package config handles all configuration loading for APIScan.
 // We use Viper so that configuration can come from:
-//   1. Default values (safe defaults defined here)
-//   2. Config file (apiscan.yaml)
-//   3. Environment variables (APISCAN_*)
-//   4. CLI flags (highest priority, set in cmd/)
+//  1. Default values (safe defaults defined here)
+//  2. Config file (apiscan.yaml)
+//  3. Environment variables (APISCAN_*)
+//  4. CLI flags (highest priority, set in cmd/)
 //
 // This layered approach means a developer can run the tool with zero config,
 // while a CI/CD pipeline can override settings via environment variables
@@ -16,8 +16,8 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/M-Mercy/ApiVulnScanner/internal/models"
 	"github.com/spf13/viper"
-	"github.com/yourusername/apiscan/internal/models"
 )
 
 const (

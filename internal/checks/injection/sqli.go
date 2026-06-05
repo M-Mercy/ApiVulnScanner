@@ -7,9 +7,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/yourusername/apiscan/internal/checks"
-	"github.com/yourusername/apiscan/internal/httpclient"
-	"github.com/yourusername/apiscan/internal/models"
+	"github.com/M-Mercy/ApiVulnScanner/internal/checks"
+	"github.com/M-Mercy/ApiVulnScanner/internal/httpclient"
+	"github.com/M-Mercy/ApiVulnScanner/internal/models"
 	"go.uber.org/zap"
 )
 
