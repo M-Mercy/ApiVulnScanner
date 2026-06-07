@@ -107,7 +107,7 @@ func setDefaults(v *viper.Viper) {
 	v.SetDefault("scanner.safe_mode", true)       // Safe mode ON by default
 	v.SetDefault("scanner.follow_redirects", true)
 	v.SetDefault("scanner.max_redirects", 5)
-	v.SetDefault("scanner.user_agent", "APIScan/1.0 (Security Scanner - github.com/yourusername/apiscan)")
+	v.SetDefault("scanner.user_agent", "APIScan/1.0 (Security Scanner - github.com/M-Mercy/ApiVulnScanner)")
 	v.SetDefault("scanner.output_dir", "./reports")
 
 	// All check categories enabled by default

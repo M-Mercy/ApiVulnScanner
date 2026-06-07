@@ -1,5 +1,4 @@
 // Package apiscan implements the CLI commands for APIScan.
-//
 // Command hierarchy:
 //   apiscan
 //   ├── scan     — Run a security scan
@@ -31,7 +30,7 @@ const (
 
   Automated API Security Scanner
   For Fintech SMEs in Kenya — v` + Version + `
-  github.com/yourusername/apiscan
+  github.com/M-Mercy/ApiVulnScanner
 `
 )
 
@@ -63,13 +62,11 @@ Example usage:
 }
 
 // Execute is the entry point called from main.go.
-// It runs the appropriate command based on CLI arguments.
 func Execute() error {
 	return rootCmd.Execute()
 }
 
 // init sets up global flags, configuration, and binds subcommands.
-// Cobra's init pattern runs before any command's PersistentPreRunE.
 func init() {
 	cobra.OnInitialize(initConfig, initLogger)
 
@@ -103,9 +100,7 @@ func initConfig() {
 	_ = viper.ReadInConfig()
 }
 
-// initLogger sets up the global structured logger.
-// In verbose mode, we log at DEBUG level with full caller info.
-// In normal mode, we log at INFO level with clean output.
+// initLogger sets up the global structured logger
 func initLogger() {
 	var cfg zap.Config
 
@@ -115,7 +110,6 @@ func initLogger() {
 	} else {
 		cfg = zap.NewProductionConfig()
 		cfg.Level = zap.NewAtomicLevelAt(zapcore.InfoLevel)
-		// Cleaner output for CLI use
 		cfg.Encoding = "console"
 		cfg.EncoderConfig.EncodeTime = zapcore.ISO8601TimeEncoder
 		cfg.EncoderConfig.EncodeLevel = zapcore.CapitalColorLevelEncoder

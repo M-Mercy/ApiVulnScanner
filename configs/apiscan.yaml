@@ -23,7 +23,7 @@ scanner:
 
   # User agent string identifies this tool in target server logs.
   # This is intentional transparency — do not set a deceptive user agent.
-  user_agent: "APIScan/1.0 (Security Scanner - github.com/yourusername/apiscan)"
+  user_agent: "APIScan/1.0 (Security Scanner - github.com/M-Mercy/ApiVulnScanner)"
 
   follow_redirects: true
   max_redirects: 5

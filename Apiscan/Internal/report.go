@@ -273,7 +273,7 @@ func newVersionCmd() *cobra.Command {
 		Run: func(cmd *cobra.Command, args []string) {
 			fmt.Printf("APIScan version %s\n", Version)
 			fmt.Printf("OWASP API Security Top 10: 2023 Edition\n")
-			fmt.Printf("Built with Go — github.com/yourusername/apiscan\n")
+			fmt.Printf("Built with Go — github.com/M-Mercy/ApiVulnScanner\n")
 		},
 	}
 }

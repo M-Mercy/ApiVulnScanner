@@ -38,7 +38,10 @@ APIScan helps small and medium fintech businesses identify common API security w
 
 ```bash
 git clone https://github.com/M-Mercy/ApiVulnScanner
+<<<<<<< HEAD
 cd apiscan
+=======
+>>>>>>> 3978ebf (added gitignore file)
 
 # Install dependencies
 make deps
