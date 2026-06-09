@@ -172,49 +172,6 @@ APIScan returns exit codes suitable for CI gates:
 | 1 | Scan error (configuration, network, etc.) |
 | 2 | Scan completed with CRITICAL or HIGH findings |
 
-### GitHub Actions Example
-
-```yaml
-# .github/workflows/api-security.yml
-name: API Security Scan
-
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-
-jobs:
-  api-security:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.23'
-
-      - name: Build APIScan
-        run: make build
-
-      - name: Run Security Scan
-        env:
-          APISCAN_AUTHENTICATION_TOKEN: ${{ secrets.API_TEST_TOKEN }}
-        run: |
-          ./bin/apiscan scan ${{ vars.API_STAGING_URL }} \
-            --i-have-authorization \
-            --output json,markdown \
-            --concurrency 3
-
-      - name: Upload Security Report
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: api-security-report
-          path: reports/
-```
-
----
 
 ## Report Formats
 
