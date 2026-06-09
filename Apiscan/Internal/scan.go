@@ -53,12 +53,7 @@ type scanFlags struct {
 	authorizationConfirmed bool
 }
 
-// newScanCmd builds the `apiscan scan` command.
-//
-// Design note: All dependencies (checks, client, engine, reporters) are
-// wired together here — in the command constructor. This is our
-// Composition Root: the single place where we assemble the object graph.
-// The individual packages know nothing about each other.
+
 func newScanCmd() *cobra.Command {
 	flags := &scanFlags{}
 
