@@ -9,10 +9,6 @@
 
 APIScan helps small and medium fintech businesses identify common API security weaknesses **without needing a dedicated security team or expensive enterprise tools**. It performs automated black-box testing — no source code access required.
 
-**Designed to compete with (in scope):**
-- OWASP ZAP (API-focused subset)
-- 42Crunch API Security Scanner
-- Burp Suite API scanning capabilities
 
 **What it checks:**
 
@@ -266,20 +262,6 @@ make help
 4. Register it in `cmd/apiscan/scan.go` inside `buildCheckRegistry()`
 
 That's it. No engine changes needed.
-
----
-
-## Development Phases
-
-| Phase | Status | Description |
-|-------|--------|-------------|
-| 1 — MVP | ✅ Complete | Core checks, CLI, reporting |
-| 2 — Security Depth | 🔄 Next | BFLA, enhanced injection, GraphQL |
-| 3 — OpenAPI Intelligence | 📋 Planned | Schema-aware fuzzing |
-| 4 — CI/CD Integration | 📋 Planned | JUnit XML, threshold config |
-| 5 — Enterprise Features | 📋 Planned | SQLite history, trend reporting, plugin API |
-
----
 
 ## License
 
